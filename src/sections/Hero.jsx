@@ -1,6 +1,32 @@
 import { Button } from "@/components/Button";
-import { ArrowRight, Download} from "lucide-react";
+import { ArrowRight, ChevronDown, Download, GitBranchIcon} from "lucide-react";
 import { AnimatedBorderButton } from "../components/AnimatedBorderButton";
+import { LiaLinkedin } from "react-icons/lia";
+import { FiGithub } from "react-icons/fi";
+
+
+const skills = [
+    "Linux",
+    "Docker",
+    "MySQL",
+    "Python",
+    "WireShark",
+    "Nmap",
+    "Metasploit",
+    "Cisco Packet Tracer",
+    "Github",
+    "AWS",
+    "Jira",
+    "Java",
+    "PHP",
+    "OpenSearch",
+    "FluentBit",
+    "Rust/Flutter",
+
+]
+
+
+
 
 export const Hero = () => {
     return <section className="relative min-h-screen flex items-center overflow-hidden"> 
@@ -20,14 +46,10 @@ export const Hero = () => {
         <div className="absolute w-1.5 h-1.5 rounded-full opacity-60" 
         style={{
             backgroundColor: "#20B2A6",
-            // eslint-disable-next-line react-hooks/purity
             left: `${Math.random() * 100}%`,
-            // eslint-disable-next-line react-hooks/purity
             top: `${Math.random() * 100}%`,
-            // eslint-disable-next-line react-hooks/purity
-            animation: `slow-driftc${15 + Math.random() * 20}s 
+            animation: `slow-drift ${15 + Math.random() * 20}s 
             ease-in-out infinite`,
-            // eslint-disable-next-line react-hooks/purity
             animationDelay: `${Math.random() *5}s`,
         }}
         />
@@ -47,11 +69,11 @@ export const Hero = () => {
                 </div>
                 {/* Headline */}
                 <div className="space-y-4">
-                    <h1 className="text5xl md:text-6xl lg:text-7xl font-bold leading-tight animate-fade-in animation-delay-100">
-                        Securing <span className="text-primary glow-text">Information Systems </span>
-                        before  <br/>
+                    <h1 className="text-5xl md:text-6xl sm:text-7xl font-bold leading-tight animate-fade-in animation-delay-100">
+                        Security is the  <span className="text-primary glow-text">objective </span>
+                        not the {" "}
                         <span className="font-serif italic font-normal text-white">
-                            not after.
+                            afterthought.
                          </span>
                     </h1>
                     <p className=" text-lg text-muted-foreground max-w-lg animate-fade-in animation-delay-200">
@@ -61,21 +83,99 @@ export const Hero = () => {
                         hands on experience building secure networks, full stack web applications and SIEM systems.
                     </p>
                 </div>
-            </div>
+                            {/* CTA Buttons */}
+                            <div className="flex flex-wrap gap-4 animate-fade-in animation-delay-300">
+                                <Button size="lg">
+                                    Contact Me <ArrowRight className="w-5 h-5" />
+                                </Button>
+                                <AnimatedBorderButton />
+                            </div>
 
-            {/* CTA Buttons */}
-            <div>
-                <Button size="lg">
-                    Contact Me <ArrowRight className="w-5 h-5" />
-                </Button>
-
-                <AnimatedBorderButton />
-
-            </div>
+                                {/* Socials */}
+                            <div className="flex items-center gap-4 animate-fade-in animation-delay-400">
+                                <span className="text-sm text-muted-foreground">Follow me: </span>
+                                {[
+                                    { icon: FiGithub, href: "https://github.com/ThatoneGuywhoStoleyourPassword"},
+                                    { icon: LiaLinkedin, href: "https://linkedin.com/in/christianbenavente"},
+                                ].map((social, idx) =>(
+                                <a 
+                                key={idx} 
+                                href={social.href} 
+                                className="p-2 rounded-full glass hovering:bg-primary/10 hover:text-primary transition-all duration-300"
+                                >
+                                    <social.icon className="w-5 h-5"/>
+                                </a>
+                                    ))}
+                            </div>
+                    </div>
+            
+            
             {/* Right Column - Image */}
+            <div className="relative animate-fade-in animation-delay-300">
+                {/*Profile Image */}
+                <div className="relative max-w-md mx-auto">
+                    <div 
+                    className="absolute inset-0 rounded-3xl 
+                    bg-gradient-to-br from-primary/30 via-transparent 
+                    to-primary/10 blur-2xl animate-pulse"
+                    />
+                    <div className="relative glass rounded-3xl p-2 glow-border">
+                        <img 
+                              src= "/public/placeholder_profile_pic.jpg" 
+                              alt="Christian Benavente"
+                              className="w-full aspect-[4/5] object-cover rounded-2xl"
+                            />
 
-        </div>
-    </div>
+                        {/*Floating Badge */}
+                        <div className="absolute -bottom-4 -right-4 glass rounded-xl px-4 py-3 animate-float">
+                            <div className="flex items-center gap-3">
+                                <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"/>
+                                <span className="text-sm font-medium">Available for Hire</span>
+                            </div>
+                        </div>
 
-     </section>
+                        {/* Stats Badge */}
+                        <div className="absolute -top-1 -left-4 glass rounded-xl px-4 py-3 animate-float animation-delay-500">
+                            <div className="text-2xl font-bold text-primary">
+                                5+
+                                </div>
+                            <div className=" text-xs text-muted-foreground">
+                                Years Experience
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                
+                
+        </div> 
+        {/* Skills */}
+                <div className="mt-20 animate-fade-in animate-delay-600">
+                    <p className=' text-sm text-muted-foreground mb-6 text-center'>
+                        Technologies I work with: 
+                        </p>
+                    <div className="relative overflow-hidden">
+                       <div className="flex flex-nowrap gap-2 animate-marquee">
+                            {[...skills, ...skills].map((skill, idx) => (
+                            <div key={idx} className="flex-shrink-0 px-8 py-4">
+                                <span className="text-xl font-semibold text-muted-foregorund/50 hover:text-muted-foreground transition-colors">{skill}</span>
+                            </div>    
+                            
+                            ))}  
+
+                        </div> 
+                    </div>
+               
+                </div>
+            </div>
+                    <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-fade-in animation-delay-800">
+                    <a
+                        href="#about"
+                        className="flex flex-col items-center gap-2 text-muted-foreground hover"
+                    >
+                        <span className="text-xs uppercase tracking-wider">Scroll Down</span>
+                        <ChevronDown className="w-6 h-6 animate-bounce" />    
+                        </a>
+                    </div>
+            </section>
 }
