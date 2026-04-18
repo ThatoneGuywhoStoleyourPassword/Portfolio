@@ -1,8 +1,12 @@
+import { FiGithub } from "react-icons/fi";
+import { ArrowUpRight} from "lucide-react";
+
+
 const projects = [
     {
         title: "OpenSearch SIEM",
         description: "A comprehensive SIEM solution using custom-built dashboards to provide real-time security insights and threat detection capabilities.",
-        image: "placeholder",
+        image: "/Projects/opensearch.png",
         tags: ["OpenSearch", "FluentBit", "Linux"],
         link: "#",
         github: "#"
@@ -10,15 +14,15 @@ const projects = [
     {
         title: "Cloud9",
         description: "Sample full stack application served on a custom built AWS VPC",
-        image: "placeholder.jpg",
-        tags: ["AWS", "API", "CloudWatch"],
+        image: "/Projects/cloud9.png",
+        tags: ["AWS", "PHP", "MySQL"],
         link: "#",
         github: "https://github.com/ThatoneGuywhoStoleyourPassword/IT342"
     },
     {
         title: "Velocitype",
         description: "A typing speed test web application with added social features",
-        image: "placeholder.jpg",
+        image: "/Projects/velocitype.png",
         tags: ["Rust", "Flutter", "Firebase"],
         link: "#",
         github: "https://github.com/H-RP/Velocitype",
@@ -26,7 +30,7 @@ const projects = [
     {
         title: "MealMate",
         description: "A meal planning/tracking app that helps users count macros and prepare dietary plans",
-        image: "placeholder.jpg",
+        image: "/Projects/mealmate.png",
         tags: ["PHP", "RabbitMQ", "MySQL"],
         link: "#",
         github: "https://github.com/oso241/IT490"
@@ -34,7 +38,7 @@ const projects = [
     {
         title: "JobConnect",
         description: "A full-stack application for job hunters and employers to connect",
-        image: "placeholder.jpg",
+        image: "/Projects/jobconnect.png",
         tags: ["PHP", "BASH", "RabbitMQ"],
         link:"#",
         github:"https://github.com/IT490TeamBambooclat/IT490"
@@ -72,10 +76,41 @@ export const Projects = () => {
                         <img 
                            src ={project.image}  
                            alt={project.title} 
-                           className=" w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"/>  
+                           className=" w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        />
+                        <div
+                            className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent opacity-60 pointer-events-none"
+                            />
+                             {/* Overlay Links */}
+                             <div className="absolute inset-0 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                <a href={project.link} className="p-3 rounded-full glass hover:bg-primary hover:text-primary-foreground transition-all">
+                                    <ArrowUpRight className="w-5 h-5"/>
+                                </a>
+                                <a href={project.github} className="p-3 rounded-full glass hover:bg-primary hover:text-primary-foreground transition-all">
+                                    <FiGithub className="w-5 h-5"/>
+                                </a>
+                            </div> 
+                    </div>
+                    
+                    {/* Content */}
+                    <div className="p-6 space-y-4">
+                        <div className="flex items-start justify-between">
+                            <h3 className="text-xl font-semibold group-hover:text-primary transition-colors">
+                                {project.title}
+                            </h3>
+                            <ArrowUpRight 
+                            className=" w-5 h-5 text-muted-foreground group-hover:text-primary 
+                            group-hover:translate-x-1 group-hover:translate-y-1 transition-all" 
+                            />
+                        </div>
+                        <p className="text-muted-foreground text-sm">{project.description}</p>
+                        <div className="flex flex-wrap gap-2">
+                            {project.tags.map((tag, tagIdx) => (
+                                <span className="px-4 py-1.5 rounded-full bg-surface text-xs font-medium border border-border/50 text-muted-foreground hover:border-primary/50 hover:text-primary transition-all duration-300">{tag}</span>
+                            ))}
+                        </div>
                     </div>
                 </div>
-
                 ))}
 
             </div>
