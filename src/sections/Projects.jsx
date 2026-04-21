@@ -47,7 +47,7 @@ const projects = [
     {
         title: "Cloud Network Solution",
         description: "A packet tracer sampling a scalable cloud service provider model",
-        image: "#",
+        image: "/Projects/cloudpkt.png",
         tags: ["Packet Tracer", "CiscoIOS"]
     }
 ];
