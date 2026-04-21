@@ -1,5 +1,6 @@
 import { FiGithub } from "react-icons/fi";
 import { ArrowUpRight} from "lucide-react";
+import { AnimatedBorderButton } from "@/components/AnimatedBorderButton";
 
 
 const projects = [
@@ -37,11 +38,17 @@ const projects = [
     },
     {
         title: "JobConnect",
-        description: "A full-stack application for job hunters and employers to connect",
+        description: "An application for job hunters and employers to connect",
         image: "/Projects/jobconnect.png",
         tags: ["PHP", "BASH", "RabbitMQ"],
         link:"#",
         github:"https://github.com/IT490TeamBambooclat/IT490"
+    },
+    {
+        title: "Cloud Network Solution",
+        description: "A packet tracer sampling a scalable cloud service provider model",
+        image: "#",
+        tags: ["Packet Tracer", "CiscoIOS"]
     }
 ];
 
@@ -55,7 +62,7 @@ export const Projects = () => {
             {/* Section Header */}
             <div className="text-center mx-auto max-w-3xl mb-16">
                 <span className="text-secondary-foreground text-sm font-medium tracking-wider uppercase animate-fade-in">Featured Work</span>
-                <h2 classNAme="text-4xl lg:text-5xl font-bold mt-4 mb-6 animate-fade-in animation-delay-100 text-secondary-foreground">
+                <h2 className="text-4xl lg:text-5xl font-bold mt-4 mb-6 animate-fade-in animation-delay-100 text-secondary-foreground">
                     Projects that
                     <span className=" font-serif italic font-normal text-white">{" "}make an impact.</span>
                 </h2>
@@ -106,7 +113,12 @@ export const Projects = () => {
                         <p className="text-muted-foreground text-sm">{project.description}</p>
                         <div className="flex flex-wrap gap-2">
                             {project.tags.map((tag, tagIdx) => (
-                                <span className="px-4 py-1.5 rounded-full bg-surface text-xs font-medium border border-border/50 text-muted-foreground hover:border-primary/50 hover:text-primary transition-all duration-300">{tag}</span>
+                                <span 
+                                key={tagIdx} 
+                                className="px-4 py-1.5 rounded-full bg-surface text-xs font-medium border border-border/50 text-muted-foreground hover:border-primary/50 hover:text-primary transition-all duration-300"
+                                >
+                                    {tag}
+                                </span>
                             ))}
                         </div>
                     </div>
@@ -114,6 +126,15 @@ export const Projects = () => {
                 ))}
 
             </div>
+                
+                {/* View All CTA */}
+                <div className="text-center mt-12 animate-fade-in animation-delay-500">
+                    <AnimatedBorderButton> 
+                        View All Projects
+                        <ArrowUpRight className="w-5 h-5" />
+                    </AnimatedBorderButton>
+                </div>
+
         </div>
     </section>
     );
