@@ -8,12 +8,12 @@ const experiences = [
         current: true,
     },
     {
-        period: "2026-Present",
+        period: "2026-2026",
         role: "Lead WAN Architect / Project Manager",
         company: "Captone Project: Cloud Network",
         description: "Developed the WAN protocols for internetwork communications. I also managed the team using SCRUM and AGILE techniques",
         technologies: ["Jira", "Cisco Packet Tracer", "Cisco IOS"],
-        current: true,
+        current: false,
     },
     {
         period: "2025-2026",
@@ -39,7 +39,14 @@ const experiences = [
         technologies: ["AWS", "IAM", "Security Groups", "CloudWatch", "Lambda"],
         current: false,
     },
-    
+    {
+        period: "2026 - Present",
+        role: "Intern",
+        company: "Spaceforce IT",
+        description: "Internship focused on MSP operations exposing me to Linux admin, firewall config, and client network design and troubleshooting",
+        technologies: ["Linux", "Firewall Configuration", "Network Design/Troubleshooting","Cloudflare","Fortigate","Pfsense"],
+        current: true,
+    },
 ]
 
 
